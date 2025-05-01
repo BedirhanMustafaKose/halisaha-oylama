@@ -62,11 +62,19 @@ st.subheader("📊 Anlık Ortalama Sonuçlar")
 
 if os.path.exists(data_file):
     df_all = pd.read_csv(data_file)
-  for p in players:
-    if p not in df_all.columns:
-        df_all[p] = pd.NA
 
-avg_scores = df_all[players].mean().sort_values(ascending=False)
+    # Sütun adlarını temizle (boşlukları sil)
+    df_all.columns = df_all.columns.str.strip()
+
+    # Eksik oyuncular için boş sütun ekle
+    for p in players:
+        if p not in df_all.columns:
+            df_all[p] = pd.NA
+
+    # Sadece oyuncular üzerinden ortalama hesapla
+    avg_scores = df_all[players].mean().sort_values(ascending=False)
+
+    # Sonuçları göster
     st.table(avg_scores.round(2).reset_index().rename(columns={"index": "Oyuncu", 0: "Ortalama Puan"}))
 else:
     st.info("Henüz hiç oy verilmedi.")

@@ -5,9 +5,9 @@ import os
 
 # Oy verecek isimler
 players = [
-    "Ali", "Ayşe", "Berk", "Cem", "Deniz",
-    "Elif", "Fatih", "Gül", "Hasan", "İrem",
-    "Kerem", "Lale", "Mehmet", "Naz", "Okan"
+    "İlker", "Feyyaz", "Yusuf", "Furkan", "Bedirhan",
+    "Muhammed", "Alperen", "Cemil", "Ufuk", "Serdar Öztürk",
+    "Serdar Çakal", "Alihan", "Haris", "Buğra", "Nisan"
 ]
 
 data_file = "oylar.csv"
